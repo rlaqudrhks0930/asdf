@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>건강 상태 분석</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header text-center my-5">
+            <h1>건강 상태 분석</h1>
+            <p class="lead">당신의 건강 상태를 분석하고 개선 방안을 제시해드립니다.</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <form id="healthForm">
+                            <div class="mb-3">
+                                <label for="height" class="form-label">키 (cm)</label>
+                                <input type="number" class="form-control" id="height" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="weight" class="form-label">몸무게 (kg)</label>
+                                <input type="number" class="form-control" id="weight" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="bodyFat" class="form-label">체지방률 (%)</label>
+                                <input type="number" class="form-control" id="bodyFat" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exercise" class="form-label">주간 운동량</label>
+                                <select class="form-select" id="exercise" required>
+                                    <option value="none">거의 하지 않음</option>
+                                    <option value="low">주 1-2회</option>
+                                    <option value="medium">주 3-4회</option>
+                                    <option value="high">주 5회 이상</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="gender" class="form-label">성별</label>
+                                <select class="form-select" id="gender" required>
+                                    <option value="male">남성</option>
+                                    <option value="female">여성</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">분석하기</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="result" class="card shadow mt-4 d-none">
+                    <div class="card-body">
+                        <h2 class="text-center mb-4">분석 결과</h2>
+                        <div id="bmiResult" class="mb-4">
+                            <h3>BMI 분석</h3>
+                            <div class="progress mb-2">
+                                <div id="bmiProgress" class="progress-bar" role="progressbar"></div>
+                            </div>
+                            <p id="bmiText"></p>
+                        </div>
+                        <div id="bodyFatResult" class="mb-4">
+                            <h3>체지방률 분석</h3>
+                            <div class="progress mb-2">
+                                <div id="bodyFatProgress" class="progress-bar" role="progressbar"></div>
+                            </div>
+                            <p id="bodyFatText"></p>
+                        </div>
+                        <div id="exerciseResult" class="mb-4">
+                            <h3>운동량 분석</h3>
+                            <p id="exerciseText"></p>
+                        </div>
+                        <div id="recommendations">
+                            <h3>개선 방안</h3>
+                            <ul id="recommendationList"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
